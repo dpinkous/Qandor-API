@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DEBUG=True
+      - SECRET_KEY=#9*#-h+-ugud$v4@e)efcl-t+p6ag04!wslg5v-m4h3oc513%q
+      - DATABASE_ENGINE=django.db.backends.sqlite3
+      - DATABASE_NAME=/app/db.sqlite
+    command: sh -c "python3 manage.py migrate && gunicorn wsgi --workers 2 --reload --bind unix:///nginx/qandor_api.sock"
+#    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/app/
+      - ./nginx/:/nginx/
