@@ -3,7 +3,7 @@ certifi==2018.4.16
 chardet==3.0.4
 coreapi==2.3.3
 coreschema==0.0.4
-Django==1.11.15
+Django==1.11.23
 django-debug-toolbar==1.9.1
 django-extensions==2.1.0
 django-extra-fields==1.0.0
